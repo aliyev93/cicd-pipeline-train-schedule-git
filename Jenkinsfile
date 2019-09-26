@@ -40,8 +40,8 @@ pipeline {
             //    branch 'master'
             //}
             steps {
-                input 'Deploy to Production?'
-                milestone(1)
+                //input 'Deploy to Production?'
+                //milestone(1)
                 withCredentials([usernamePassword(credentialsId: 'cloud_user', usernameVariable: 'USERNAME', passwordVariable: 'i6642320')]) {
                     script {
                         sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod_ip \"docker pull willbla/train-schedule:${env.BUILD_NUMBER}\""
